@@ -9,6 +9,7 @@ class Renderer
   end
 end
 
+# Different attributes than BritishTextObject
 class TextObject
   attr_reader :text, :size_inches, :color
 
@@ -33,15 +34,15 @@ end
 # This will effect all instances
 class BritishTextObject
   def color
-    return colour
+    colour
   end
 
   def text
-    return string
+    string
   end
 
   def size_inches
-    return size_mm / 25.4
+    size_mm / 25.4
   end
 end
 
@@ -49,16 +50,16 @@ end
 bto = BritishTextObject.new('hello', 50.8, :blue)
 
 class << bto
-   def color
-    return colour
+  def color
+    colour
   end
 
   def text
-    return string
+    string
   end
 
   def size_inches
-    return size_mm / 25.4
+    size_mm / 25.4
   end
 end
 
@@ -67,4 +68,3 @@ text_object = TextObject.new('hello from TextObject', 40.73, :red)
 renderer = Renderer.new
 renderer.rendered bto
 renderer.rendered text_object
-

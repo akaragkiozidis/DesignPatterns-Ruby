@@ -7,21 +7,19 @@ class StringIOAdapter
   end
 
   def getc
-    if @position >= @string.length
-      raise EOFError
-    end
+    fail EOFError if @position >= @string.length
     ch = @string[@position]
     @position += 1
-    return ch
+    ch
   end
 
   def eof?
-    return @position >= @string.length
+    @position >= @string.length
   end
 end
 
+# StringIOAdapter allows string to get accepted in encrypter :)
 encrypter = Encrypter.new('XYZZY')
 reader = StringIOAdapter.new('We attach at dawn')
 writer = File.open('out.txt', 'w')
 encrypter.encrypt(reader, writer)
-

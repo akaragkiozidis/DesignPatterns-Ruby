@@ -5,7 +5,7 @@ class Encrypter
 
   def encrypt(reader, writer)
     key_index = 0
-    while not reader.eof?
+    until reader.eof?
       clear_char = reader.getc
       encrypter_char = clear_char ^ @key[key_index]
       writer.putc(encrypter_char)
@@ -14,8 +14,8 @@ class Encrypter
   end
 end
 
+# Encrypter uses files, not strings
 reader = File.open('message.txt')
 writer = File.open('message.encrypted', 'w')
 encrypter = Encrypter.new('my secret key')
 encrypter.encrypt(reader, writer)
-
