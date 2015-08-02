@@ -7,7 +7,7 @@ class Employee
 	attr_accessor :title, :salary
 	
 	def initialize(name, title, salary)
-		super()
+		super() # this will call Subject's initialize method
 		@name = name
 		@title = title
 		@salary = salary
